@@ -6,7 +6,7 @@
 /*   By: nsouza-o <nsouza-o@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 14:16:59 by nsouza-o          #+#    #+#             */
-/*   Updated: 2024/10/21 10:40:33 by nsouza-o         ###   ########.fr       */
+/*   Updated: 2024/10/21 11:11:05 by nsouza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 #include "Brain.hpp"
+#include "AAnimal.hpp"
+#include "CCat.hpp"
 
 int main()
 {
@@ -45,6 +47,12 @@ int main()
 		Cat myCat;
 		Cat otherCat = myCat;
 	}
+	std::cout << "\n" << std::endl;
+	{
+		CCat myCCat;
+		myCCat.makeSound();
+	}
+	//AAnimal pureAnimal;
 	
 	return 0;
 }

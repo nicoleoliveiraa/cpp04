@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   CCat.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsouza-o <nsouza-o@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 18:19:51 by nsouza-o          #+#    #+#             */
-/*   Updated: 2024/10/21 10:36:59 by nsouza-o         ###   ########.fr       */
+/*   Updated: 2024/10/21 11:12:22 by nsouza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "CCat.hpp"
 
-Cat::Cat()
+CCat::CCat()
 {
-	Animal::type = "Cat";
+	AAnimal::type = "CCat";
 	this->brain = new Brain;
-	std::cout << BOLD_YELLOW << "CAT " << BOLD_WHITE;
+	std::cout << BOLD_CYAN << "CCAT " << BOLD_WHITE;
 	std::cout << "default constructor called!" << RESET << std::endl;
 }
 
-Cat::Cat(const Cat& src) : Animal()
+CCat::CCat(const CCat& src) : AAnimal()
 {
-	std::cout << "Cat copy constructor called!" << std::endl;
+	std::cout << "CCat copy constructor called!" << std::endl;
 	*this = src;
 }
 
-Cat& Cat::operator=(const Cat& src)
+CCat& CCat::operator=(const CCat& src)
 {
-	std::cout << "Cat copy assignment operator called!" << std::endl;
+	std::cout << "CCat copy assignment operator called!" << std::endl;
 	if (this != &src)
 	{
 		this->type = src.type;
@@ -37,15 +37,15 @@ Cat& Cat::operator=(const Cat& src)
 	return (*this);
 }
 
-Cat::~Cat()
+CCat::~CCat()
 {
-	std::cout << YELLOW << "CAT " << WHITE;
+	std::cout << CYAN << "CCAT " << WHITE;
 	std::cout << "destructor called!" << RESET << std::endl;
 	delete brain;
 }
 
-void Cat::makeSound() const
+void CCat::makeSound() const
 {
-	std::cout << "The " << BOLD_YELLOW << "CAT " << RESET << "started to meow: ";
+	std::cout << "The " << BOLD_CYAN << "CCAT " << RESET << "started to meow: ";
 	std::cout << BOLD_WHITE << "MEW MEW! 🐱" << RESET << std::endl;
 }
