@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsouza-o <nsouza-o@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/21 16:52:53 by nsouza-o          #+#    #+#             */
-/*   Updated: 2024/10/22 16:44:51 by nsouza-o         ###   ########.fr       */
+/*   Created: 2024/10/22 14:38:30 by nsouza-o          #+#    #+#             */
+/*   Updated: 2024/10/22 17:00:33 by nsouza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICE_HPP
-#define ICE_HPP
-
 #include "AMateria.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
+#include "Character.hpp"
 
-class Ice : public AMateria {
-public:
-	Ice();
-	Ice(const Ice& src);
-	Ice& operator=(const Ice& src);
-	~Ice();
+int main(void)
+{
+	AMateria* ice = new Ice;
+	AMateria* cure = new Cure;
+	// AMateria* otherIce = ice.clone();
+	// delete otherIce;
 
-	std::string getType() const;
-	AMateria* clone() const;
-}; 
-
-#endif // ICE_HPP
+	Character someone("Max");
+	//Character other(someone);
+	someone.equip(ice);
+	someone.equip(cure);
+	//other = someone;
+}
