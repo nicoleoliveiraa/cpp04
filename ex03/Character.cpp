@@ -6,7 +6,7 @@
 /*   By: nsouza-o <nsouza-o@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 15:16:20 by nsouza-o          #+#    #+#             */
-/*   Updated: 2024/10/23 16:32:35 by nsouza-o         ###   ########.fr       */
+/*   Updated: 2024/10/23 19:47:03 by nsouza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void Character::equip(AMateria* m)
 		index++;
 	if (index < 4)
 	{
-		std::cout << "The character " << _name << " was equipped with a " << m->getType();
+		std::cout << "The character " << _name << " was equipped with " << m->getType();
 		std::cout << "!" << std::endl;
 		this->inventory[index] = m;
 	}
@@ -126,7 +126,7 @@ void Character::unequip(int idx)
 	{
 		if (this->inventory[idx] != NULL)
 		{
-			std::cout << "The character " << _name << " dropped a " << inventory[idx]->getType() << "!" << std::endl;
+			std::cout << "The character " << _name << " dropped the " << inventory[idx]->getType() << "!" << std::endl;
 			drop(this->inventory[idx]);
 			this->inventory[idx] = NULL;
 		}

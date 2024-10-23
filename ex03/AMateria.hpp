@@ -6,7 +6,7 @@
 /*   By: nsouza-o <nsouza-o@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 15:04:40 by nsouza-o          #+#    #+#             */
-/*   Updated: 2024/10/23 16:46:48 by nsouza-o         ###   ########.fr       */
+/*   Updated: 2024/10/23 19:15:35 by nsouza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 #include "ICharacter.hpp"
 
 class ICharacter;
-
 class AMateria {
 protected:
 	std::string type;
