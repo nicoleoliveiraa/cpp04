@@ -6,7 +6,7 @@
 /*   By: nsouza-o <nsouza-o@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 14:55:11 by nsouza-o          #+#    #+#             */
-/*   Updated: 2024/10/22 16:57:08 by nsouza-o         ###   ########.fr       */
+/*   Updated: 2024/10/23 16:27:53 by nsouza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Cure::Cure() : AMateria("cure")
 	std::cout << "Cure default constructor called!" << std::endl;
 }
 
-Cure::Cure(const Cure& src)
+Cure::Cure(const Cure& src): AMateria(src)
 {
 	std::cout << "Cure copy constructor called!" << std::endl;
 	*this = src;
@@ -44,4 +44,9 @@ AMateria* Cure::clone() const
 std::string Cure::getType() const
 {
 	return (this->type);
+}
+
+void Cure::use(ICharacter& target)
+{
+	std::cout << "* heals "<< target.getName() << "’s wounds *" << std::endl;
 }

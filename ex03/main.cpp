@@ -6,7 +6,7 @@
 /*   By: nsouza-o <nsouza-o@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 14:38:30 by nsouza-o          #+#    #+#             */
-/*   Updated: 2024/10/22 17:00:33 by nsouza-o         ###   ########.fr       */
+/*   Updated: 2024/10/23 16:49:48 by nsouza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,20 @@ int main(void)
 	// delete otherIce;
 
 	Character someone("Max");
-	//Character other(someone);
+	Character other("Still");
 	someone.equip(ice);
-	someone.equip(cure);
+	//someone.equip(cure);
+	someone.printInventory();
+	someone.unequip(0);
+	someone.unequip(5);
+	someone.printInventory();
+	someone.use(0, someone);
+	
+	std::cout << std::endl;
+	
+	other.equip(cure);
+	other.use(0, someone);
+
+	Character::clearFloor();
 	//other = someone;
 }

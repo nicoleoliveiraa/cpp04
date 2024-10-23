@@ -6,11 +6,13 @@
 /*   By: nsouza-o <nsouza-o@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 15:16:20 by nsouza-o          #+#    #+#             */
-/*   Updated: 2024/10/22 17:53:14 by nsouza-o         ###   ########.fr       */
+/*   Updated: 2024/10/23 16:32:35 by nsouza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
+
+AMateria* Character::floor[5] = {NULL, NULL, NULL, NULL, NULL};
 
 Character::Character() : _name("Default")
 {
@@ -79,7 +81,13 @@ void Character::equip(AMateria* m)
 		std::cout << "Tried to equip an unexistent material!" << std::endl;	
 		return ;
 	}
-	index = 0;		
+	if (m->isOnFloor())
+	{
+		std::cout << "Character cannot equip unavailable materia!" << std::endl;	
+		return ;
+	}
+	index = 0;
+	m->setOnFloor();	
 	while (this->inventory[index] != NULL)
 		index++;
 	if (index < 4)
@@ -97,20 +105,67 @@ void Character::equip(AMateria* m)
 
 void Character::drop(AMateria* dropped)
 {
+	if (!dropped) 
+		return;
+	dropped->setOnFloor();
 	int index = 0;
-	while (this->floor[index])
+	while (index < 5 && Character::floor[index])
 		index++;
-	
+	if (index < 5)
+		Character::floor[index] = dropped;
+	else
+	{
+		delete Character::floor[4]; 
+		Character::floor[4] = dropped;
+	}
 }
 
 void Character::unequip(int idx)
 {
-	if (idx >= 0 || idx <= 3)
+	if (idx >= 0 && idx <= 3)
 	{
 		if (this->inventory[idx] != NULL)
 		{
+			std::cout << "The character " << _name << " dropped a " << inventory[idx]->getType() << "!" << std::endl;
 			drop(this->inventory[idx]);
 			this->inventory[idx] = NULL;
 		}
+		else
+		    std::cout << "No materia to drop at inventory slot " << idx << "!" << std::endl;
 	}
+	else
+		std::cout << "Index " << idx << " is out of bounds for the inventory!" << std::endl;
+}
+
+void Character::printInventory()
+{
+	for (int i = 0; i < 4; i++)
+	{
+		if (inventory[i])
+			std::cout << inventory[i]->getType() << std::endl;
+	}
+}
+
+void Character::clearFloor()
+{
+	for (int i = 0; i < 5; i++)
+	{
+		if (Character::floor[i] != NULL)
+			delete Character::floor[i];
+	}
+}
+
+void Character::use(int idx, ICharacter& target)
+{
+	if (idx >= 0 && idx <= 3)
+	{
+		if (this->inventory[idx] != NULL)
+		{
+			this->inventory[idx]->use(target);
+		}
+		else
+		    std::cout << "No materia to use at inventory slot " << idx << "!" << std::endl;
+	}
+	else
+		std::cout << "Index " << idx << " is out of bounds for the inventory, so cannot be used!" << std::endl;
 }
