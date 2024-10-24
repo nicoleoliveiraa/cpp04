@@ -6,7 +6,7 @@
 /*   By: nsouza-o <nsouza-o@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 18:11:25 by nsouza-o          #+#    #+#             */
-/*   Updated: 2024/10/21 10:37:57 by nsouza-o         ###   ########.fr       */
+/*   Updated: 2024/10/24 13:51:41 by nsouza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ Dog& Dog::operator=(const Dog& src)
 
 Dog::~Dog()
 {
-	std::cout << "Dog destructor called!" << std::endl;
 	std::cout << GREEN << "DOG " << WHITE;
 	std::cout << "destructor called!" << RESET << std::endl;
 	delete brain;

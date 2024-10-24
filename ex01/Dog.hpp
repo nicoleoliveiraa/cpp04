@@ -6,7 +6,7 @@
 /*   By: nsouza-o <nsouza-o@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 18:10:47 by nsouza-o          #+#    #+#             */
-/*   Updated: 2024/10/18 18:19:18 by nsouza-o         ###   ########.fr       */
+/*   Updated: 2024/10/24 13:46:34 by nsouza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ public:
 	Dog();
 	Dog(const Dog& src);
 	Dog& operator=(const Dog& src);
-	~Dog();
+	virtual ~Dog();
 
 	void makeSound() const;
 };

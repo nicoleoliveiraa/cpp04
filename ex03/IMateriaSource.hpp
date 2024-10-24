@@ -6,7 +6,7 @@
 /*   By: nsouza-o <nsouza-o@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 16:56:35 by nsouza-o          #+#    #+#             */
-/*   Updated: 2024/10/23 19:18:50 by nsouza-o         ###   ########.fr       */
+/*   Updated: 2024/10/24 13:58:24 by nsouza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@
 class AMateria;
 class IMateriaSource
 {
-public:
-virtual ~IMateriaSource() {}
-virtual void learnMateria(AMateria*) = 0;
-virtual AMateria* createMateria(std::string const & type) = 0;
+	public:
+		virtual ~IMateriaSource() {}
+		virtual void learnMateria(AMateria*) = 0;
+		virtual AMateria* createMateria(std::string const & type) = 0;
 };
 
 #endif

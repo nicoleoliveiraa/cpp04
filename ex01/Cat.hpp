@@ -6,7 +6,7 @@
 /*   By: nsouza-o <nsouza-o@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 18:14:14 by nsouza-o          #+#    #+#             */
-/*   Updated: 2024/10/18 18:21:35 by nsouza-o         ###   ########.fr       */
+/*   Updated: 2024/10/24 13:46:24 by nsouza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ public:
 	Cat();
 	Cat(const Cat& src);
 	Cat& operator=(const Cat& src);
-	~Cat();
+	virtual ~Cat();
 
 	void makeSound() const;
 };
